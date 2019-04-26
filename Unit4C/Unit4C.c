@@ -36,10 +36,12 @@ int main(void) {
 	int * arrSSSorted;
 	int arrISUnsorted[] = {64, 34, 25, 12, 22, 11, 70};
 	int * arrISSorted;
-	int arrQSUnsorted[] = {64, 34, 25, 12, 22, 11, 60};
+//	int arrQSUnsorted[] = {64, 34, 25, 12, 22, 11, 60};
+	int arrQSUnsorted[] = {5,8,2,10,1,6};
 	int * arrQSSorted;
 
-	int n = sizeof(arrBSUnsorted)/sizeof(arrBSUnsorted[0]);
+//	int n = sizeof(arrBSUnsorted)/sizeof(arrBSUnsorted[0]);
+	int n = sizeof(arrQSUnsorted)/sizeof(arrQSUnsorted[0]);
 
 	// Bubble Sort
 	printf("\nUnsorted = ");
@@ -173,14 +175,13 @@ int * quickSort(int arr[], int low, int high) {  // Time complexity
 
 	if (low < high) { // this should always be true
 		// Set the array so that end element used for the partition is centered
-		// i.e. FROM 64 34 25 12 22 11 60 TO 34 25 12 22 11 60 64 (all lower to left all higher to right)
-		int pi = partition(arr, low, high); // 0 - 6 then 0 - 4
+		int pi = partition(arr, low, high); // FIRST pi = 3 low = 0 high = 5
 
 		// Separately sort elements before partition and after partition
 		printf("\nquickSort start = %d, end = %d\n", low, pi-1);
-		quickSort(arr, low, pi-1); // 0 - 4
+		quickSort(arr, low, pi-1); // SECOND pi = 3 low = 0 0-2
 		printf("\nquickSort start = %d, end = %d\n", pi+1, high);
-		quickSort(arr, pi+1, high);
+		quickSort(arr, pi+1, high); // THIRD pi = 3 high = 5  4-5
 
 	}
 
@@ -235,47 +236,48 @@ static int mypartition (int arr[], int strtIdx, int pivotIdx, int last) { // 0, 
 	return pivotIdx;
 }
 
-static int partition (int arr[], int low, int high) { // initially 0 - 6
-	int pivot = arr[high]; // initially 60
+static int partition (int arr[], int low, int high) { // FIRST 0-5 SECOND 0-2 THIRD 4-5
+	int pivot = arr[high]; // initially   FIRST 1 SECOND 6 THIRD 10
 	int i = (low - 1); // initially i = -1
 
-	for (int j = low; j <= high-1; j++) { // initially 0 - 5 (the rest of the elements)
-		////////////// FIRST PASS START
-		// 64 34 25 12 22 11 60
+	for (int j = low; j <= high-1; j++) { // FIRST 0-4 SECOND 0-2 THIRD 4-4
+		////////////// FIRST
+		// 5,8,2,10,1,6
+		// 5<6 yes j=0 i=0
+		// 8<6 no  j=1 i=0
+		// 2<6 yes j=2 i=1
+		// 10<6 no  j=3 i=1
+		// 1<6 yes j=4 i=2
+		////////////// SECOND
+		// 5,2,1,6,8,10
+		// 5<1 no j=0 i=-1
+		// 2<1 no  j=1 i=-1
 
-		// j=0 64 <= 60 NO
-		// j=1 34 <= 60 YES
-		// j=2 25 <= 60 YES
-		// j=3 12 <= 60 YES
-		// j=4 22 <= 60 YES
-		// j=5 11 <= 60 YES
-		////////////// FIRST PASS END
 		if (arr[j] <= pivot) {
 
 			i++; // increment index of smaller element
 			swap(&arr[i], &arr[j]);
-			////////////// FIRST PASS START
-			// from 64 34 25 12 22 11 60 with j=1 i=0
-			// to   34 64 25 12 22 11 60
-			// from 34 64 25 12 22 11 60 with j=2 i=1
-			// to   34 25 64 12 22 11 60
-			// from 34 25 64 12 22 11 60 with j=3 i=2
-			// to   34 25 12 64 22 11 60
-			// from 34 25 12 64 22 11 60 with j=4 i=3
-			// to   34 25 12 22 64 11 60
-			// from 34 25 12 22 64 11 60 with j=5 i=4
-			// to   34 25 12 22 11 64 60
-			////////////// FIRST PASS END
+			////////////// FIRST
+			// from 5,8,2,10,1,6 j=0 i=0
+			// to   5,8,2,10,1,6
+			// from 5,8,2,10,1,6 j=2 i=1
+			// to   5,2,8,10,1,6
+			// from 5,2,8,10,1,6 j=4 i=2
+			// to   5,2,1,10,8,6
+			////////////// SECOND
 		}
 	}
 	swap(&arr[i+1], &arr[high]);
-	////////////// FIRST PASS START
-	// to   34 25 12 22 11 60 64
-	////////////// FIRST PASS END
+	////////////// FIRST
+	// from 5,2,1,10,8,6   swap [3]=10 & [5]=6
+	// to   5,2,1,6,8,10
+	////////////// SECOND
+	// from 5,2,1,6,8,10   swap [0]=5 & [2]=1
+	// to   1,2,5,6,8,10  SORTED!!
 
 	printf("\nPartition pass = ");
 	printArray(arr, high+1);
 
-	return (i+1);
+	return (i+1); //  FIRST 3 SECOND 0 THIRD 0
 
 }

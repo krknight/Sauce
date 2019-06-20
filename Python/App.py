@@ -1,4 +1,13 @@
+# https://www.youtube.com/watch?v=rfscVS0vtbw
+# Learning Python - Full Course for Beginners
+# freeCodeCamp.org
+# Giraffe Academy
+
+# https://docs.python.org/3/py-modindex.html
+
 from math import * # math is a module
+import useful_tools
+# from useful_tools import *
 
 ## Getting started
 # name = "John"
@@ -98,16 +107,184 @@ from math import * # math is a module
 # print(cube(4))
 
 ## If Statements
-is_male = False
-is_tall = False
-
-if is_male and is_tall: # or can be replace with and
-    print("You are a tall male")
-elif is_male and not(is_tall):
-    print("You are a short male")
-elif not(is_male) and is_tall:
-    print("You are not a male but are tall")
-else:
-    print("You are not a male and not tall")
+# is_male = False
+# is_tall = False
+#
+# if is_male and is_tall: # or can be replace with and
+#     print("You are a tall male")
+# elif is_male and not(is_tall):
+#     print("You are a short male")
+# elif not(is_male) and is_tall:
+#     print("You are not a male but are tall")
+# else:
+#     print("You are not a male and not tall")
 
 ## If Statements and Comparisons
+# def max_num(num1, num2, num3):
+#     if num1 >= num2 and num1 >= num3:
+#         return num1
+#     elif num2 >= num1 and num2 >= num3:
+#         return num2
+#     else:
+#         return num3
+#
+# print(max_num(300,40,5))
+
+## Building a better calculator
+# num1 = float(input("Enter first number: "))
+# op = input("Enter operator: ")
+# num2 = float(input("Enter second number: "))
+#
+# if op == "+":
+#     print(num1 + num2)
+# elif op == "-":
+#     print(num1 - num2)
+# elif op == "/":
+#     print(num1/num2)
+# elif op == "*":
+#     print(num1 * num2)
+# else :
+#     print("Invalid operator")
+
+## Dictionaries - stores info in key value pairs
+# monthConversions = {
+#     "Jan": "January",
+#     "Feb": "February",
+#     "Mar": "March",
+#     "Dec": "December",
+# }
+#
+# print(monthConversions["Mar"])
+# print(monthConversions.get("De","Not a valid key"))
+
+## While loop
+# i = 1
+# while i <= 10:
+#     print(i)
+#     i += 1
+#
+# print("Done with loop")
+
+## Building a Guessing Game 2:20
+# secret_word = "giraffe"
+# guess = ""
+# retry = 1
+# guess_limit = 3
+#
+# while guess != secret_word and retry <= guess_limit:
+#     guess = input("Enter guess: ")
+#     retry+=1
+#
+# if retry >= guess_limit:
+#     print("Out of guesses")
+# else:
+#     print("You guessed right, the secret word is: " + secret_word)
+
+## For Loop
+# friends = ["Jim", "Karen", "Kevin"]
+# for index in range(len(friends)):
+#     print(friends[index])
+# for friend in friends:
+#     print(friend)
+# for letter in "Giraffe Academy":
+#     print(letter)
+# for index in range(3,10):
+#     print(index)
+# for index in range(5):
+#     if index == 0:
+#         print("First Iteration")
+#     else:
+#         print("Not first")
+
+## Exponent Function
+# print(2**3) # 2 to the power of 3 = 8
+# def raise_to_power(base_num, pow_num):
+#     result = 1
+#     # multiple base_num by itself pow_num times
+#     for num in range(pow_num):
+#         result *= base_num
+#     print(str(base_num) + " to the power of " + str(pow_num) + " = " + str(result))
+#
+# raise_to_power(3,4)
+
+## 2D Lists and Nested Loops
+# number_grid = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9],
+#     [0]
+# ]
+#
+# print(number_grid[2][1])
+#
+# for row in number_grid:
+#     for col in row:
+#         print(col)
+
+## Build a Translator
+# Giraffe Language
+# All vowels AEIOU become g
+
+# def translate(phrase):
+#     translation = ""
+#     for letter in phrase:
+#         # if letter in "AEIOUaeiou":
+#         if letter.lower() in "aeiou":
+#             if letter.isupper():
+#                 translation = translation + "G"
+#             else:
+#                 translation = translation + "g"
+#         else:
+#             translation = translation + letter
+#     return translation
+#
+# print(translate(input("Enter a phrase: ")))
+
+## Comment
+'''
+Add comment here
+and here
+'''
+
+## Try Except
+
+# try:
+#     number = int(input("Enter a number: "))
+#     print(number)
+#     value = 10/0
+# except ValueError:
+#     print("NaN!")
+# except ZeroDivisionError as err:
+#     print("Divide by zero! " + "Error: " + str(err))
+
+## Reading Files
+
+# employee_file = open("employees.txt", "r")  # "r" "w" "a" "r+" r+ is read and write
+#
+# # print(employee_file.readable())
+# # print(employee_file.readline())
+# # print(employee_file.readlines())
+#
+# for employee in employee_file.readlines():
+#     print(employee)
+#
+# employee_file.close()
+
+## Writing to Files
+# employee_file = open("employees.txt", "a")
+# # print(employee_file.read())
+# print(employee_file.write("Toby - Human Resources"))
+# print(employee_file.write("\nKelly - Customer Service"))
+# employee_file.close()
+
+## Modules and pip - a module is a python file we can import into our existing python file
+# print(useful_tools.roll_dice(10))
+
+# Add a module
+# Google python-docx
+# GitHub has python-docx
+# pip3 --version
+# pip3 install python-docx
+# python-docx gets put in site-packages
+
+## Classes and objects

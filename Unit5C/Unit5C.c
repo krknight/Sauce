@@ -24,6 +24,18 @@ int main(void) {
 		struct node * next;
 	};
 
+	typedef struct optional_tag {
+		int data3;
+	} ts1;
+
+	ts1 structn;
+	structn.data3 = 4;
+
+	typedef struct optional_tag structm;
+	structm newtype;
+
+	printf("\ntypedef struct test, the value is %d", structn.data3);
+
     struct node ob1;
     struct node ob2;
     struct node ob3;

@@ -6,11 +6,21 @@
 // Description : C++ Standard Template Library, Ansi-style
 //============================================================================
 
+/*
+ * Time Complexity (fastest at top to slowest at the bottom)
+ * O(1) constant time
+ * O(log(n)) logarithmic time (fast e.g. associative sorted binary search log2(n))
+ * O(n) linear time
+ *
+ */
+
 #include <iostream>
 #include <vector>
 #include <deque>
 #include <list>
 #include "vectorSTL.h"
+#include "setSTL.h"
+#include "mapSTL.h"
 
 using namespace std;
 
@@ -19,7 +29,8 @@ void iteratelist(list<int>::iterator, list<int>::iterator);
 
 
 int main() {
-	cout << "!!!Vectors!!!" << endl;
+	cout << "!!!SEQUENCE CONTAINERS!!!" << endl;
+	cout << "Vector" << endl;
 
 	vectorSTL *vObj;
 	vObj = new vectorSTL();
@@ -48,16 +59,16 @@ int main() {
 
 	iteratevector(itr1, itr2);
 
-	cout << "!!!Deque!!!" << endl;
+	cout << "Deque" << endl;
 	deque<int> deq;
 	deq.push_back(4);
 	deq.push_back(6);
 	deq.push_back(7);   // deq: {4,6,7}
 	deq.push_front(2);  // deq: {2,4,6,7}
 	deq.push_back(3);   // deq: {2,4,6,7,3}
-	cout << deq[1]; // 4
+	cout << deq[1] << endl; // 4
 
-	cout << "!!!List!!!" << endl;
+	cout << "List" << endl;
 	list<int> mylist;
 	mylist.push_back(5);
 	mylist.push_back(2);
@@ -65,8 +76,8 @@ int main() {
 	mylist.push_back(6);  // mylist: {5,2,9,6}
 	mylist.push_front(4); // mylist: {4,5,2,9,6}
 
-	list<int>::iterator itr = find(mylist.begin(), mylist.end(), 2);
-	mylist.insert(itr,8); // {4,5,8,2,9,6}
+	list<int>::iterator itr = find(mylist.begin(), mylist.end(), 2); // itr -> 2
+	mylist.insert(itr,8); // {4,5,8,2,9,6} ... insert before 2
 	itr++;  // itr -> 9
 	mylist.erase(itr);  // mylist: {4,8,5,2,6} erasure also takes constant time, very fast O(1)
 
@@ -74,11 +85,27 @@ int main() {
 	list<int>::iterator itrl2 = mylist.end();
 	iteratelist(itrl1, itrl2);
 
+	// main feature of list is the splice function
 //	mylist1.splice(itr, mylist2, itr_a, itr_b); // O(1)  itr_a & b is a range in mylist2
 	// mylist1 = mylist2(range (itr_a to itr_b))
 
+	cout << "!!!ASSOCIATIVE CONTAINERS!!!" << endl;
+	cout << "Set" << endl;
+	setSTL *setObj = new setSTL();
+	setObj->doSets();
+	delete setObj;
+
+	cout << "Map" << endl;
+	mapSTL *mapObj = new mapSTL();
+	mapObj->doMap();
+
+	delete mapObj;
+
 	return 0;
 }
+
+
+
 
 void iteratevector(vector<int>::iterator itr_start, vector<int>::iterator itr_end) {
 	cout << "{";

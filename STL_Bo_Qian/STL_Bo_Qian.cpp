@@ -21,6 +21,7 @@
 #include "vectorSTL.h"
 #include "setSTL.h"
 #include "mapSTL.h"
+#include "hashSTL.h"
 
 using namespace std;
 
@@ -98,8 +99,12 @@ int main() {
 	cout << "Map" << endl;
 	mapSTL *mapObj = new mapSTL();
 	mapObj->doMap();
-
 	delete mapObj;
+
+	cout << "Hash" << endl;
+	hashSTL *hashObj = new hashSTL();
+	hashObj->doHash();
+	delete hashObj;
 
 	return 0;
 }

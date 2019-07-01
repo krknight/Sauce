@@ -27,7 +27,8 @@ void mapSTL::doMap(void) {
 	it = mymap.find('z'); // O(log(n))
 
 	// showing contents:
-	for(it=mymap.begin(); it != mymap.end(); it++)
-		cout << (*it).first << " => " << (*it).second << endl;
+	for(it=mymap.begin(); it != mymap.end(); it++) {
+		cout << (*it).first << " => " << (*it).second  << endl;
+	}
 }
 

@@ -132,9 +132,24 @@ int main() {
 	delete mapObj;
 
 	cout << "Hash" << endl;
+
+	hashSTL hashtest("set a string");
+	cout << "END" << endl;
+	cout << hashtest.getstr() << endl;
+
+	hashSTL *ht = new hashSTL("set another string");
+	cout << ht->getstr() << endl;
+	delete ht;
+
 	hashSTL *hashObj = new hashSTL();
 	hashObj->doHash();
 	delete hashObj;
+
+
+
+
+
+	cout << "END" << endl;
 
 	return 0;
 }

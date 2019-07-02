@@ -112,6 +112,10 @@ int main() {
 	list<int>::iterator itrl2 = mylist.end();
 	iteratelist(itrl1, itrl2);
 
+	mylist.sort();
+
+	iteratelist(mylist.begin(), itrl2);
+
 	// main feature of list is the splice function
 //	mylist1.splice(itr, mylist2, itr_a, itr_b); // O(1)  itr_a & b is a range in mylist2
 	// mylist1 = mylist2(range (itr_a to itr_b))
@@ -151,5 +155,10 @@ void iteratelist(list<int>::iterator itr_start, list<int>::iterator itr_end) {
 //	for (list<int>::iterator itr = itr_start; itr < itr_end; itr++) {
 //		cout << *itr << " ";
 //	}
+	list<int>::iterator itr = itr_start;
+	while (itr != itr_end) {
+		cout << *itr << " ";
+		itr++;
+	}
 	cout << "}" << endl;
 }

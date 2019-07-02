@@ -23,6 +23,8 @@
 #include "mapSTL.h"
 #include "hashSTL.h"
 
+#include <tuple>
+
 using namespace std;
 
 void iteratevector(vector<int>::iterator, vector<int>::iterator);
@@ -30,11 +32,35 @@ void iteratelist(list<int>::iterator, list<int>::iterator);
 
 
 int main() {
+
+
+
 	cout << "!!!SEQUENCE CONTAINERS!!!" << endl;
+	cout << "Array" << endl;
+//	int arr[2][3][4] = {
+//			{ {1,2,3,4}, {1,2,3,4}, {1,2,3,4} },
+//			{ {1,2,3,4}, {1,2,3,4}, {1,2,3,4} },
+//	};
+
 	cout << "Vector" << endl;
 
 	vectorSTL *vObj;
 	vObj = new vectorSTL();
+
+	tuple<int,float,char> mytuple;
+	mytuple = make_tuple(10,15.5,'a');
+	cout << "tuple element1 " << get<0>(mytuple) << " tuple element 2 " << get<1>(mytuple) << endl;
+
+	vector< tuple<int,int,int> > vectuple;
+	vector< tuple<int,int,int> >::iterator vectuit;
+	vectuple.push_back(make_tuple(5,6,7) );
+	vectuple.push_back(make_tuple(9,10,11) );
+
+	vectuit = vectuple.begin();
+	cout << "vector tuple 1 = " << get<0>(*vectuit) << endl;
+	vectuit++;
+	cout << "vector tuple 2 = " << get<0>(*vectuit) << endl;
+
 
 	vector<int> vec;
 	vec.push_back(4);

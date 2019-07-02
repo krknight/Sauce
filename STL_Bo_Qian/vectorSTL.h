@@ -8,14 +8,20 @@
 #ifndef VECTORSTL_H_
 #define VECTORSTL_H_
 
-namespace std {
+#include <vector>
+#include <string>
+
+using namespace std;
+
 
 class vectorSTL {
 public:
 	vectorSTL();
 	virtual ~vectorSTL();
+
+//	vector<int,char> vec;
+
 };
 
-} /* namespace std */
 
 #endif /* VECTORSTL_H_ */

@@ -7,7 +7,6 @@
 
 #include "vectorSTL.h"
 
-namespace std {
 
 vectorSTL::vectorSTL() {
 	// TODO Auto-generated constructor stub
@@ -18,4 +17,3 @@ vectorSTL::~vectorSTL() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */

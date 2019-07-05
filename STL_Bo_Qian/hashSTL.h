@@ -19,13 +19,16 @@ using namespace std;
 class hashSTL {
 public:
 	hashSTL();
+	hashSTL(string str);
 	virtual ~hashSTL();
 	void doHash(void);
+	string getstr(void);
 private:
 	void foo(const unordered_map<char, string>&);
 	void arraybasedcont(void);
 
 private:
+	string tststr;
 	unordered_set<string> myset;
 	unordered_set<string>::const_iterator itr;
 	vector<string> vec;

@@ -2,7 +2,7 @@
  * RangeRover.cpp
  *
  *  Created on: Apr 23, 2019
- *      Author: kknight
+ *      Author: keithknight
  */
 
 #include "RangeRover.h"
@@ -15,11 +15,16 @@ using namespace std;
 //}
 
 void RangeRover::propulsion() {
-	cout << "Internal Combustion" << endl;
+	cout << "Overriden Vehicle propulsion with Range Rover ICE propulsion" << endl;
+	fuel();
 }
 
-void RangeRover::make() {
-	cout << "RangeRover" << endl;
+void RangeRover::show() {
+	cout << "Overriden Vehicle Show with Range Rover Show" << endl;
+}
+
+void RangeRover::fuel(void) {
+	cout << "Vehicle pure virtual implemented by Range Rover's PRIVATE (called from propulsion) fuel is gasoline" << endl;
 }
 
 

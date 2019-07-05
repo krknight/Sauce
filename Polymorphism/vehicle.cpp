@@ -1,29 +1,32 @@
 /*
- * vehicle.cpp
+ * Vehicle.cpp
  *
  *  Created on: Apr 23, 2019
- *      Author: kknight
+ *      Author: keithknight
  */
 
-#include "vehicle.h"
+#include "Vehicle.h"
 #include <iostream>
 
-using namespace std;
-
-vehicle::vehicle() {
+Vehicle::Vehicle() {
 	data = 0;
 }
 
-vehicle::~vehicle() {
+Vehicle::~Vehicle() {
 
 }
 
-//void vehicle::propulsion() { krk
-//	cout << "Energy converter" << endl;
-//}
+void Vehicle::propulsion() {
+	cout << "Energy converter" << endl;
+}
 
-void vehicle::make() {
-	cout << "Generic" << endl;
+void Vehicle::show() {
+	cout << "Vehicle" << endl;
+}
+
+string Vehicle::generic_vehicle() {
+	string str = "This vehicle has a steering wheel";
+	return str;
 }
 
 

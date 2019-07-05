@@ -7,7 +7,7 @@
 //============================================================================
 
 #include <iostream>
-#include "vehicle.h"
+#include "Vehicle.h"
 #include "Tesla.h"
 #include "RangeRover.h"
 
@@ -15,24 +15,38 @@ using namespace std;
 
 int main() {
 
-	// vehicle v; krk can't instantiate an abstract class because it contains a pure virtual func
+	string str_main;
+
+//	Vehicle v;  //krk
 	Tesla t;
 	RangeRover r;
 
-	cout << "Make of Vehicle, Tesla, RangeRover" << endl;
-	// v.make(); krk does not make sense for base class
-	t.make();
-	r.make();
+//	cout << "show function for Vehicle, Tesla, RangeRover" << endl;
+//	v.show(); // krk
+	t.show(); // krk parent class routine replace by child class routine of the same name
+	r.show();
 
-	cout << "Virtual propulsion function for Vehicle, Tesla, RangeRover" << endl;
-	// v.propulsion(); krk does not make sense for base class
+//	cout << "virtual propulsion function for Vehicle, Tesla, RangeRover" << endl;
+//	v.propulsion();  //krk
 	t.propulsion();
 	r.propulsion();
 
 	cout << "Vehicle base class points to child class Tesla" << endl;
-	vehicle * base;
+	Vehicle * base;
 	base = &t;
 	base->propulsion();
+
+//	cout << "Vehicle base class equals child class RangeRover" << endl; //krk
+//	Vehicle b;
+//	b = r;
+//	b.propulsion();
+
+	t.fuel();  // krk implemented virtual function
+	t.generic_vehicle(); // krk inherited parent class routine
+	str_main = "Volume";
+	cout << "Before t.feature() str_main is " << str_main << endl;
+	t.feature(str_main);
+	cout << "After t.feature() str_main is " << str_main << endl;
 
 
 	return 0;

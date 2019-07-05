@@ -2,18 +2,23 @@
  * RangeRover.h
  *
  *  Created on: Apr 23, 2019
- *      Author: kknight
+ *      Author: keithknight
  */
 
 #ifndef RANGEROVER_H_
 #define RANGEROVER_H_
 
-#include "vehicle.h"
+#include "Vehicle.h"
 
-class RangeRover : public vehicle {
+class RangeRover : public Vehicle {
 public:
 	void propulsion();
-	void make();
+	void show();
+private:
+	void fuel(void); // krk
+
 };
+
+
 
 #endif /* RANGEROVER_H_ */

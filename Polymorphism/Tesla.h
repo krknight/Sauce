@@ -2,20 +2,24 @@
  * Tesla.h
  *
  *  Created on: Apr 23, 2019
- *      Author: kknight
+ *      Author: keithknight
  */
 
 #ifndef TESLA_H_
 #define TESLA_H_
 
-#include "vehicle.h"
+#include "Vehicle.h"
 
-class Tesla : public vehicle {
+class Tesla : public Vehicle {
 public:
 	Tesla();
 	~Tesla();
     void propulsion();
-    void make();
+    void show();
+
+	void fuel(void); // krk
+
+	void feature(string&); // krk
 };
 
 #endif /* TESLA_H_ */

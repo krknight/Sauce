@@ -15,8 +15,16 @@ hashSTL::hashSTL() {
 
 }
 
+hashSTL::hashSTL(string str) {
+	tststr = str;
+}
+
 hashSTL::~hashSTL() {
 	// TODO Auto-generated destructor stub
+}
+
+string hashSTL::getstr() {
+	return tststr;
 }
 
 void hashSTL::foo(const unordered_map<char, string>& m) {
